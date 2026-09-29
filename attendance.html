@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance - FitZone</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>FitZone</h2>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="members.html">Members</a>
+
+            <a href="trainers.html">Trainers</a>
+
+            <a href="memberships.html">Memberships</a>
+
+            <a href="attendance.html" class="active">
+                Attendance
+            </a>
+
+            <a href="workouts.html">Workout Plans</a>
+
+            <a href="payments.html">Payments</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="settings.html">Settings</a>
+
+        </nav>
+
+        <button class="sidebar-logout" onclick="logout()">
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <div class="dashboard-topbar">
+
+            <div>
+                <h1>Attendance Management</h1>
+                <p>Mark and manage daily member attendance</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="profile-circle">A</div>
+                <span>Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Attendance Form -->
+        <div class="dashboard-panel attendance-form-panel">
+
+            <div class="panel-header">
+                <h2>Mark Attendance</h2>
+            </div>
+
+            <form id="attendanceForm">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label for="attendanceDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="attendanceDate"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="attendanceMember">
+                            Member
+                        </label>
+
+                        <select
+                            id="attendanceMember"
+                            required
+                        >
+                            <option value="">
+                                Select Member
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="attendanceStatus">
+                            Status
+                        </label>
+
+                        <select
+                            id="attendanceStatus"
+                            required
+                        >
+                            <option value="Present">
+                                Present
+                            </option>
+
+                            <option value="Absent">
+                                Absent
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-member-btn"
+                >
+                    Mark Attendance
+                </button>
+
+            </form>
+
+            <p id="attendanceMessage"></p>
+
+        </div>
+
+
+        <!-- Search and Filter -->
+        <div class="member-controls attendance-controls">
+
+            <input
+                type="text"
+                id="attendanceSearch"
+                placeholder="Search member name..."
+            >
+
+            <input
+                type="date"
+                id="attendanceFilterDate"
+            >
+
+            <select id="attendanceFilterStatus">
+
+                <option value="All">
+                    All Status
+                </option>
+
+                <option value="Present">
+                    Present
+                </option>
+
+                <option value="Absent">
+                    Absent
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Attendance History -->
+        <div class="members-table-container">
+
+            <div class="panel-header">
+                <h2>Attendance History</h2>
+            </div>
+
+            <table class="members-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Date</th>
+
+                        <th>Member</th>
+
+                        <th>Email</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="attendanceTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

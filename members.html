@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Members - FitZone</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Fit<span>Zone</span>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    🏠 Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="members.html" class="active">
+                    👥 Members
+                </a>
+            </li>
+
+            <li>
+                <a href="trainers.html">
+                    🏋️ Trainers
+                </a>
+            </li>
+
+            <li>
+                <a href="memberships.html">
+                    💳 Memberships
+                </a>
+            </li>
+
+            <li>
+                <a href="attendance.html">
+                    📋 Attendance
+                </a>
+            </li>
+
+            <li>
+                <a href="workouts.html">
+                    💪 Workout Plans
+                </a>
+            </li>
+
+            <li>
+                <a href="payments.html">
+                    💰 Payments
+                </a>
+            </li>
+
+            <li>
+                <a href="profile.html">
+                    👤 Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    ⚙️ Settings
+                </a>
+            </li>
+
+        </ul>
+
+        <button onclick="logout()" class="sidebar-logout">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="dashboard-main">
+
+        <div class="dashboard-topbar">
+
+            <div>
+
+                <h1>Member Management</h1>
+
+                <p>
+                    Add and manage gym members
+                </p>
+
+            </div>
+
+            <button
+                class="add-member-btn"
+                onclick="openMemberForm()">
+
+                + Add Member
+
+            </button>
+
+        </div>
+
+
+        <!-- Search and Filters -->
+
+        <div class="member-controls">
+
+            <input
+                type="text"
+                id="memberSearch"
+                placeholder="🔍 Search member by name..."
+                onkeyup="displayMembers()">
+
+
+            <select
+                id="membershipFilter"
+                onchange="displayMembers()">
+
+                <option value="All">
+                    All Memberships
+                </option>
+
+                <option value="Basic">
+                    Basic
+                </option>
+
+                <option value="Standard">
+                    Standard
+                </option>
+
+                <option value="Premium">
+                    Premium
+                </option>
+
+            </select>
+
+
+            <select
+                id="statusFilter"
+                onchange="displayMembers()">
+
+                <option value="All">
+                    All Status
+                </option>
+
+                <option value="Active">
+                    Active
+                </option>
+
+                <option value="Inactive">
+                    Inactive
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Member Form -->
+
+        <div
+            id="memberFormContainer"
+            class="member-form-container">
+
+            <div class="form-header">
+
+                <h2 id="formTitle">
+                    Add New Member
+                </h2>
+
+                <button
+                    onclick="closeMemberForm()"
+                    class="close-btn">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+
+            <form id="memberForm">
+
+                <input
+                    type="hidden"
+                    id="editIndex">
+
+
+                <div class="form-grid">
+
+                    <div>
+                        <label>Full Name</label>
+
+                        <input
+                            type="text"
+                            id="memberName"
+                            placeholder="Enter full name"
+                            required>
+                    </div>
+
+
+                    <div>
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            id="memberEmail"
+                            placeholder="Enter email"
+                            required>
+                    </div>
+
+
+                    <div>
+                        <label>Phone Number</label>
+
+                        <input
+                            type="tel"
+                            id="memberPhone"
+                            placeholder="Enter phone number"
+                            required>
+                    </div>
+
+
+                    <div>
+                        <label>Gender</label>
+
+                        <select id="memberGender" required>
+
+                            <option value="">
+                                Select Gender
+                            </option>
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+                        <label>Age</label>
+
+                        <input
+                            type="number"
+                            id="memberAge"
+                            placeholder="Enter age"
+                            required>
+                    </div>
+
+
+                    <div>
+                        <label>Membership Plan</label>
+
+                        <select
+                            id="memberPlan"
+                            required>
+
+                            <option value="">
+                                Select Plan
+                            </option>
+
+                            <option value="Basic">
+                                Basic
+                            </option>
+
+                            <option value="Standard">
+                                Standard
+                            </option>
+
+                            <option value="Premium">
+                                Premium
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+                        <label>Joining Date</label>
+
+                        <input
+                            type="date"
+                            id="joiningDate"
+                            required>
+                    </div>
+
+
+                    <div>
+                        <label>Membership Status</label>
+
+                        <select
+                            id="memberStatus"
+                            required>
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-member-btn">
+
+                    Save Member
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Members Table -->
+
+        <div class="members-table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Phone</th>
+
+                        <th>Gender</th>
+
+                        <th>Age</th>
+
+                        <th>Plan</th>
+
+                        <th>Joining Date</th>
+
+                        <th>Status</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="membersTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

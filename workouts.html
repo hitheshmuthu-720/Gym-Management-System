@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workout Plans - FitZone</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>FitZone</h2>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="members.html">Members</a>
+
+            <a href="trainers.html">Trainers</a>
+
+            <a href="memberships.html">Memberships</a>
+
+            <a href="attendance.html">Attendance</a>
+
+            <a href="workouts.html" class="active">
+                Workout Plans
+            </a>
+
+            <a href="payments.html">Payments</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="settings.html">Settings</a>
+
+        </nav>
+
+        <button class="sidebar-logout" onclick="logout()">
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <div class="dashboard-topbar">
+
+            <div>
+                <h1>Workout & Diet Plans</h1>
+                <p>Create and assign fitness plans to members</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="profile-circle">A</div>
+                <span>Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Add Plan Button -->
+
+        <button
+            class="add-member-btn"
+            onclick="openWorkoutForm()"
+        >
+            + Create Plan
+        </button>
+
+
+        <!-- Workout Form -->
+
+        <div
+            class="member-form-container"
+            id="workoutFormContainer"
+        >
+
+            <div class="form-header">
+
+                <h2 id="workoutFormTitle">
+                    Create Workout Plan
+                </h2>
+
+                <button
+                    class="close-btn"
+                    onclick="closeWorkoutForm()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="workoutForm">
+
+                <input
+                    type="hidden"
+                    id="workoutEditIndex"
+                    value=""
+                >
+
+
+                <div class="form-grid">
+
+                    <!-- Member -->
+
+                    <div>
+
+                        <label for="workoutMember">
+                            Member
+                        </label>
+
+                        <select
+                            id="workoutMember"
+                            required
+                        >
+
+                            <option value="">
+                                Select Member
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Plan Name -->
+
+                    <div>
+
+                        <label for="workoutPlanName">
+                            Plan Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="workoutPlanName"
+                            placeholder="Example: Weight Loss Plan"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Workout Type -->
+
+                    <div>
+
+                        <label for="workoutType">
+                            Workout Type
+                        </label>
+
+                        <select
+                            id="workoutType"
+                            required
+                        >
+
+                            <option value="">
+                                Select Type
+                            </option>
+
+                            <option value="Weight Loss">
+                                Weight Loss
+                            </option>
+
+                            <option value="Muscle Gain">
+                                Muscle Gain
+                            </option>
+
+                            <option value="Strength">
+                                Strength
+                            </option>
+
+                            <option value="Fitness">
+                                General Fitness
+                            </option>
+
+                            <option value="Bodybuilding">
+                                Bodybuilding
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Duration -->
+
+                    <div>
+
+                        <label for="workoutDuration">
+                            Duration
+                        </label>
+
+                        <select
+                            id="workoutDuration"
+                            required
+                        >
+
+                            <option value="4 Weeks">
+                                4 Weeks
+                            </option>
+
+                            <option value="8 Weeks">
+                                8 Weeks
+                            </option>
+
+                            <option value="12 Weeks">
+                                12 Weeks
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Trainer -->
+
+                    <div>
+
+                        <label for="workoutTrainer">
+                            Trainer
+                        </label>
+
+                        <input
+                            type="text"
+                            id="workoutTrainer"
+                            placeholder="Trainer name"
+                        >
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div>
+
+                        <label for="workoutStatus">
+                            Status
+                        </label>
+
+                        <select
+                            id="workoutStatus"
+                            required
+                        >
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Exercises -->
+
+                    <div class="full-width">
+
+                        <label for="workoutExercises">
+                            Exercises
+                        </label>
+
+                        <textarea
+                            id="workoutExercises"
+                            rows="4"
+                            placeholder="Example: Squats, Push-ups, Bench Press, Running"
+                            required
+                        ></textarea>
+
+                        <small>
+                            Separate exercises using commas.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Diet -->
+
+                    <div class="full-width">
+
+                        <label for="dietPlan">
+                            Diet Plan
+                        </label>
+
+                        <textarea
+                            id="dietPlan"
+                            rows="5"
+                            placeholder="Example: High protein breakfast, rice and vegetables for lunch..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-member-btn"
+                >
+                    Save Plan
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Search -->
+
+        <div class="member-controls workout-controls">
+
+            <input
+                type="text"
+                id="workoutSearch"
+                placeholder="Search member or plan..."
+            >
+
+            <select id="workoutFilterType">
+
+                <option value="All">
+                    All Workout Types
+                </option>
+
+                <option value="Weight Loss">
+                    Weight Loss
+                </option>
+
+                <option value="Muscle Gain">
+                    Muscle Gain
+                </option>
+
+                <option value="Strength">
+                    Strength
+                </option>
+
+                <option value="Fitness">
+                    General Fitness
+                </option>
+
+                <option value="Bodybuilding">
+                    Bodybuilding
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Plans -->
+
+        <div
+            class="workout-grid"
+            id="workoutContainer"
+        >
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

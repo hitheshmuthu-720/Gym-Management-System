@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - FitZone</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Fit<span>Zone</span>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html" class="active">
+                    🏠 Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="members.html">
+                    👥 Members
+                </a>
+            </li>
+
+            <li>
+                <a href="trainers.html">
+                    🏋️ Trainers
+                </a>
+            </li>
+
+            <li>
+                <a href="memberships.html">
+                    💳 Memberships
+                </a>
+            </li>
+
+            <li>
+                <a href="attendance.html">
+                    📋 Attendance
+                </a>
+            </li>
+
+            <li>
+                <a href="workouts.html">
+                    💪 Workout Plans
+                </a>
+            </li>
+
+            <li>
+                <a href="payments.html">
+                    💰 Payments
+                </a>
+            </li>
+
+            <li>
+                <a href="profile.html">
+                    👤 Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    ⚙️ Settings
+                </a>
+            </li>
+
+        </ul>
+
+        <button onclick="logout()" class="sidebar-logout">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="dashboard-main">
+<button class="mobile-menu-btn" onclick="toggleSidebar()">
+    ☰
+</button>
+        <!-- Top Bar -->
+
+        <div class="dashboard-topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome back, Admin 👋
+                </p>
+            </div>
+
+            <div class="admin-profile">
+
+                <div class="profile-circle">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Statistics -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+                <div>
+                    <p>Total Members</p>
+                    <h2 id="totalMembers">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    💳
+                </div>
+
+                <div>
+                    <p>Active Memberships</p>
+                    <h2 id="activeMemberships">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏋️
+                </div>
+
+                <div>
+                    <p>Total Trainers</p>
+                    <h2 id="totalTrainers">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    💰
+                </div>
+
+                <div>
+                    <p>Monthly Revenue</p>
+                    <h2 id="monthlyRevenue">₹0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div>
+                    <p>Today's Attendance</p>
+                    <h2 id="todayAttendance">0</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dashboard Bottom -->
+
+        <div class="dashboard-grid">
+
+
+            <!-- Recent Activities -->
+
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <h2>Recent Activities</h2>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+                <div id="recentActivities">
+
+                    <div class="activity">
+
+                        <span>👤</span>
+
+                        <div>
+                            <strong>No recent activities</strong>
+                            <p>Activity will appear here</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Quick Actions -->
+
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <h2>Quick Actions</h2>
+
+                </div>
+
+                <div class="quick-actions">
+
+                    <a href="members.html">
+                        ➕ Add Member
+                    </a>
+
+                    <a href="trainers.html">
+                        ➕ Add Trainer
+                    </a>
+
+                    <a href="attendance.html">
+                        📋 Mark Attendance
+                    </a>
+
+                    <a href="payments.html">
+                        💰 Add Payment
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

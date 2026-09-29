@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Trainers - FitZone</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Fit<span>Zone</span>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    🏠 Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="members.html">
+                    👥 Members
+                </a>
+            </li>
+
+            <li>
+                <a href="trainers.html" class="active">
+                    🏋️ Trainers
+                </a>
+            </li>
+
+            <li>
+                <a href="memberships.html">
+                    💳 Memberships
+                </a>
+            </li>
+
+            <li>
+                <a href="attendance.html">
+                    📋 Attendance
+                </a>
+            </li>
+
+            <li>
+                <a href="workouts.html">
+                    💪 Workout Plans
+                </a>
+            </li>
+
+            <li>
+                <a href="payments.html">
+                    💰 Payments
+                </a>
+            </li>
+
+            <li>
+                <a href="profile.html">
+                    👤 Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    ⚙️ Settings
+                </a>
+            </li>
+
+        </ul>
+
+        <button onclick="logout()" class="sidebar-logout">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="dashboard-main">
+
+        <div class="dashboard-topbar">
+
+            <div>
+
+                <h1>Trainer Management</h1>
+
+                <p>
+                    Manage gym trainers and their details
+                </p>
+
+            </div>
+
+            <button
+                class="add-member-btn"
+                onclick="openTrainerForm()">
+
+                + Add Trainer
+
+            </button>
+
+        </div>
+
+
+        <!-- Search -->
+
+        <div class="trainer-controls">
+
+            <input
+                type="text"
+                id="trainerSearch"
+                placeholder="🔍 Search trainer by name..."
+                onkeyup="displayTrainers()">
+
+        </div>
+
+
+        <!-- Trainer Form -->
+
+        <div
+            id="trainerFormContainer"
+            class="member-form-container">
+
+            <div class="form-header">
+
+                <h2 id="trainerFormTitle">
+                    Add New Trainer
+                </h2>
+
+                <button
+                    onclick="closeTrainerForm()"
+                    class="close-btn">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+
+            <form id="trainerForm">
+
+                <input
+                    type="hidden"
+                    id="trainerEditIndex">
+
+
+                <div class="form-grid">
+
+                    <div>
+
+                        <label>Trainer Name</label>
+
+                        <input
+                            type="text"
+                            id="trainerName"
+                            placeholder="Enter trainer name"
+                            required>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Specialization</label>
+
+                        <select
+                            id="trainerSpecialization"
+                            required>
+
+                            <option value="">
+                                Select Specialization
+                            </option>
+
+                            <option value="Strength Training">
+                                Strength Training
+                            </option>
+
+                            <option value="Personal Training">
+                                Personal Training
+                            </option>
+
+                            <option value="Yoga">
+                                Yoga
+                            </option>
+
+                            <option value="Cardio">
+                                Cardio
+                            </option>
+
+                            <option value="CrossFit">
+                                CrossFit
+                            </option>
+
+                            <option value="Nutrition">
+                                Nutrition
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Experience</label>
+
+                        <input
+                            type="text"
+                            id="trainerExperience"
+                            placeholder="Example: 5 Years"
+                            required>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Phone Number</label>
+
+                        <input
+                            type="tel"
+                            id="trainerPhone"
+                            placeholder="Enter phone number"
+                            required>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            id="trainerEmail"
+                            placeholder="Enter email"
+                            required>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Assigned Members</label>
+
+                        <input
+                            type="number"
+                            id="assignedMembers"
+                            placeholder="Number of members"
+                            min="0"
+                            value="0">
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-member-btn">
+
+                    Save Trainer
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Trainer Cards -->
+
+        <div
+            id="trainerContainer"
+            class="trainer-grid">
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
